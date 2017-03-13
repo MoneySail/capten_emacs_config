@@ -1,0 +1,19 @@
+# -*- mode: snippet -*-
+# name: h_nd
+# key: h_nd
+# --
+
+#ifndef
+#define
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+
+
+#ifdef __cplusplus
+}
+
+#endif
+#endif
