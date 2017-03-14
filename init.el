@@ -16,7 +16,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (js2-mode switch-window find-file-in-project git-gutter evil magit ace-jump-mode xcscope helm auto-complete flycheck)))
+    (markdown-mode elpy js2-mode switch-window find-file-in-project git-gutter evil magit ace-jump-mode xcscope helm auto-complete flycheck)))
  '(safe-local-variable-values (quote ((encoding . utf-8)))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -28,6 +28,8 @@
 ;; 配置elpy
 (elpy-enable)
 
+;; 配置markdown-mode
+
 ;; 配置color-theme
 (require 'color-theme)
 (color-theme-initialize)
@@ -38,13 +40,12 @@
 (require 'helm-config)
 (helm-mode 1)
 (global-set-key (kbd "M-x") 'helm-M-x)
-(global-set-key (kbd "C-x C-b") 'helm-buffer-list)
+(global-set-key (kbd "C-x C-b") 'helm-buffers-list)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
-
+(global-set-key (kbd "C-x C-l") 'helm-locate)
 ;; 配置xcscope
 (require 'xcscope)
 (setq cscope-do-not-update-database t)
-
 
 ;; 配置org-mode
 (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
@@ -58,7 +59,7 @@
 ;; 配置emmet
 (require 'emmet-mode)
 (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
-(add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation
+(add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
 
 ;; 配置yasnppet
 (add-to-list 'load-path "~/.emacs.d/elpa/yasnippet")
@@ -68,17 +69,18 @@
      	"~/.emacs.d/elpa/yasnippet/snippets" ;; the defualt collection
 	"~/.emacs.d/elpa/yasnippet/yasmate"  ;; the yasmate collection
 	        ))
-(yas/initialize)
 (require 'yasnippet)
-(yas-global-mode 1)
-;;(yas-reload-all)
-;;(add-hook 'prog-mode-hook #'yas-minor-mode)
+(yas-reload-all)
+(add-hook 'prog-mode-hook #'yas-minor-mode)
 
 ;; 配置auto-complete
 (add-to-list 'load-path "~/.emacs.d/elpa/auto-complete")
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/elpa/auto-complete/dict")
 (ac-config-default)
+
+;; 配置go-mode
+(require 'go-mode-autoloads)
 
 ;; 配置ace-jump
 (autoload
@@ -103,10 +105,11 @@
 (defun web-mode-keybinding-settings ()  "Settings for keybinding."  (eal-define-keys   '(web-mode-map)'
 (("C-c C-v" browse-url-of-file))))(eval-after-load "web-mode-keybinding-settings"  '(web-mode-keybinding-settings))   (provide 'web-settings)
 
-;; switch-window配置
+;; 配置switch-window
 (require 'switch-window)
-(global-set-key (kbd "C-o") 'switch-window)
+(global-set-key (kbd "C-o") 'switch-window)  
 
 ;; magit配置
 (global-set-key (kbd "C-x g") 'magit-status)
-(global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)   
+(global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
+(global-set-key (kbd "C-x M-b") 'magit-branch-and-checkout)

@@ -1,19 +1,19 @@
 # -*- mode: snippet -*-
-# name: c_fh
-# key: c_fh
+# name: h_fh_1
+# key: h_fh_1
 # --
 
 /*
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * FileName  : $1
+ * FileName  : ${1:.h}
  * Author    : capten
  * Email     : 18803880712@126.com
- * Brief     : $2
+ * Brief     : ${2:Í·ÎÄ¼þ}
  * CopyRights: All rights reserved to XuChang Relay Research Institude Co.,Ltd
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  */
-#ifndef
-#define
+#ifndef $3
+#define $4
 
 #ifdef __cplusplus
 extern "C" {
