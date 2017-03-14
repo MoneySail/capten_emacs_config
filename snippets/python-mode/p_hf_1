@@ -1,0 +1,23 @@
+# -*- mode: snippet -*-
+# name: p_fh_1
+# key: p_fh_1
+# --
+
+# -*- coding: utf-8 -*-
+
+"""
+*----------------        Begin      ----------------*
+
+* Script Name : ${1:.py}
+
+* Author      : Capten
+
+* Created     : $3 
+
+* Version     : ${1:1.}
+
+* Descrpted   : $5
+
+*----------------         End       ----------------*
+
+"""
