@@ -1,0 +1,56 @@
+
+;; 取消开机画面
+(setq inhibit-startup-message t)
+;; 关掉滚动条
+
+;; 制定备份文件路径
+(setq backup-directory-alist '(("." . "~/.emacs.b"))
+      
+;; 显示时间
+(display-time-mode 1)
+(setq display-time-24hr-format t)
+
+;;闪屏报警
+(setq visible-bell t)
+
+;; 设置可以直接打开图片
+(setq auto-image-file-mode t)
+
+;;使用y or n提问
+(fset 'yes-or-no-p 'y-or-n-p)
+;;锁定行高
+(setq resize-mini-windows nil)
+;;递归minibuffer
+(setq enable-recursive-minibuffers t)
+
+
+;;高亮显示成对括号
+(show-paren-mode t)
+
+;;鼠标指针避光标
+(mouse-avoidance-mode 'animate)
+;;粘贴于光标处,而不是鼠标指针处
+(setq mouse-yank-at-point t)
+
+;; 显示行列号
+(setq column-number-mode t)
+
+;;显示标题栏 %f 缓冲区完整路径 %p 页面百分数 %l 行号
+(setq frame-title-format "%f")
+
+;;缺省模式 text-mode
+(setq default-major-mode 'text-mode)
+
+;;开启语法高亮。
+(global-font-lock-mode 1)
+;; 
+
+;;
+;;
+;;
+;;
+;;
+;;
+;;
+;;
+;;

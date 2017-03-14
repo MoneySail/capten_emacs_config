@@ -1,0 +1,28 @@
+# -*- mode: snippet -*-
+# name: cpp_fh_1
+# key: cpp_fh_1
+# --
+/*
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * FileName  : ${1:.cpp}
+ * Author    : capten
+ * Email     : 18803880712@126.com
+ * Brief     : $2
+ * CopyRights: All rights reserved to XuChang Relay Research Institude Co.,Ltd
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ */ 
+#ifndef $3
+#define $4
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+
+
+#ifdef __cplusplus
+}
+
+#endif
+#endif 
+$0

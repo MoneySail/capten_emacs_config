@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# name: c_fh_2
+# key: c_fh_2
+# --
+
+/*
+ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆
+ ☆ FileName  : ${1:.c}
+ ☆ Author    : Capten
+ ☆ Email     : 18801119660@qq.com
+ ☆ Brief     : ${2:源文件}
+ ☆ CopyRights: All rights reserved to Capten
+ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆
+ */
+$0

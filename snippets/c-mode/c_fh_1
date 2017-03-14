@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# name: c_fh_1
+# key: c_fh_1
+# --
+
+/*
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * FileName  : ${1:.c}
+ * Author    : capten
+ * Email     : 18803880712@126.com
+ * Brief     : ${2:Ô´ÎÄ¼þ}
+ * CopyRights: All rights reserved to XuChang Relay Research Institude Co.,Ltd
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ */
+$0
