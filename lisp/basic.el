@@ -64,6 +64,14 @@
 ;; 自动补全括号
 (electric-pair-mode t)
 
+;;绑定shell命令快捷键
+(global-set-key (kbd "C-x d")
+            #'(lambda ()
+                (interactive)
+                (universal-argument)
+                (shell-command "date")
+		    ))
+
 ;; 逗号自动空格
 (global-set-key (kbd ",")
   #'(lambda ()

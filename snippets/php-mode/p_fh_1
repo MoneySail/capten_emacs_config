@@ -1,0 +1,18 @@
+# -*- mode: snippet -*-
+# name: p_fh_1
+# key: p_fh_1
+# --
+<?php
+/*
+
+ * FileName    =>  .php
+ 
+ * Author      =>  Capten
+ 
+ * Date        =>  $1
+ 
+ * Description =>  $2
+ 
+ */
+ $0
+?>
