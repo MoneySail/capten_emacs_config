@@ -56,7 +56,7 @@
 ;;(global-set-key (kbd "C-o") 'other-window)
 
 ;; 设置撤销快捷键
-(global-set-key (kbd "C-/") 'undo)
+;;(global-set-key (kbd "C-/") 'undo)
 
 ;; 设置标记
 (global-set-key (kbd "M-/") 'set-mark-command)
@@ -65,12 +65,12 @@
 (electric-pair-mode t)
 
 ;;绑定shell命令快捷键
-(global-set-key (kbd "C-x d")
-            #'(lambda ()
-                (interactive)
-                (universal-argument)
-                (shell-command "date")
-		    ))
+;;(global-set-key (kbd "C-x d")
+;;            #'(lambda ()
+;;                (interactive)
+;;                (universal-argument)
+;;                (shell-command "date")
+;;		    ))
 
 ;; 逗号自动空格
 (global-set-key (kbd ",")
@@ -95,6 +95,5 @@
 (setq default-tab-width 4)
 (setq-default indent-tabs-mode nil)
 (setq c-default-style "Linux")
-(setq c-basic-offset 4) 
-
+(setq c-basic-offset 4)
 
