@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: c_e
+# key: c_e
+# --
+typedef enum
+{
+
+}_TypeDef
