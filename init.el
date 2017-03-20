@@ -25,6 +25,7 @@
  ;; If there is more than one, they won't work right.
  )
 
+
 ;; 配置elpy
 (elpy-enable)
 

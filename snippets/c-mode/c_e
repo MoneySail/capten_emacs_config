@@ -2,7 +2,16 @@
 # name: c_e
 # key: c_e
 # --
+
+// $1 枚举类型定义
 typedef enum
 {
+    = 0x00, 
+    = 0x01,
+    = 0x02,
+    = 0x03
+}_TypeDef;
 
-}_TypeDef
+
+
+

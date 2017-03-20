@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: c_s
+# key: c_s
+# --
+
+// $1 结构类型定义
+typedef struct
+{
+ 
+}_TypeDef;
+
