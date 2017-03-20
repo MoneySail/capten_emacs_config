@@ -25,6 +25,10 @@
  ;; If there is more than one, they won't work right.
  )
 
+;; 配置google-c
+;;(require 'google-c-style)
+;;(add-hook 'c-mode-common-hook 'google-set-c-style)
+;;(add-hook 'c-mode-common-hook 'google-make-newline-indent)
 
 ;; 配置elpy
 (elpy-enable)
