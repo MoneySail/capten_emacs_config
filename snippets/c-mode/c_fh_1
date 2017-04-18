@@ -8,8 +8,9 @@
  * FileName  : ${1:.c}
  * Author    : capten
  * Email     : 18803880712@126.com
- * Brief     : ${2:Ô´ÎÄ¼þ}
- * CopyRights: All rights reserved to XuChang Relay Research Institude Co.,Ltd
+ * Brief     : ${2:}
+ * CreateTime: $3
+ * CopyRights: All rights reserved to XuChang Relay Research Institute Co.,Ltd
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  */
 $0
