@@ -76,14 +76,16 @@
 (global-set-key (kbd ",")
   #'(lambda ()
     (interactive)
-	  (insert ", ")))
+    (insert ", ")))
 
-(set-language-environment 'Chinese-GB)
+;; 写了一大堆毛用都没有
+(prefer-coding-system 'utf-8)
+(set-language-environment 'utf-8)
 (setq locale-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
 (set-selection-coding-system 'utf-8)
 (set-buffer-file-coding-system 'utf-8)
-(set-default buffer-file-coding-system 'utf8)
+(set-default buffer-file-coding-system 'utf-8)
 (set-default-coding-systems 'utf-8)
 (set-clipboard-coding-system 'utf-8)
 (set-terminal-coding-system 'utf-8)
@@ -97,3 +99,9 @@
 (setq c-default-style "Linux")
 (setq c-basic-offset 4)
 
+;; 快速插入时间快捷键定义
+(defun capten-insert-time()
+  "insert the date in current postion"
+  (interactive)
+  (insert(format-time-string "%Y-%m-%d %H:%M:%S")))
+(global-set-key (kbd "C-x t") 'capten-insert-time)
