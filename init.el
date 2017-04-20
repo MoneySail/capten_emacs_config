@@ -68,6 +68,7 @@
 
 ;; 配置yasnppet
 (add-to-list 'load-path "~/.emacs.d/elpa/yasnippet")
+
 (setq yas-snippet-dirs
       '(
 	"~/.emacs.d/snippets"                ;; capten personal collection
@@ -75,8 +76,9 @@
 	"~/.emacs.d/elpa/yasnippet/yasmate"  ;; the yasmate collection
 	        ))
 (require 'yasnippet)
-(yas-reload-all)
-(add-hook 'prog-mode-hook #'yas-minor-mode)
+(yas-global-mode 1)
+;; (yas-reload-all)
+;;(add-hook 'prog-mode-hook #'yas-minor-mode)
 
 ;; 配置auto-complete
 (add-to-list 'load-path "~/.emacs.d/elpa/auto-complete")
@@ -119,3 +121,36 @@
 (global-set-key (kbd "C-x p") 'magit-pull)
 (global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
 (global-set-key (kbd "C-x M-b") 'magit-branch-and-checkout)
+
+;; org-mode的相关配置
+
+;; 让org-mode也支持txt
+(add-to-list 'auto-mode-alist '("\\.txt\\'" . org-mode))
+
+; 丰富TODO的配置内容
+(setq org-todo-keywords
+      '((type "工作任务(w!)" "学习任务(s!)" "其他任务(l!)" "|")
+        (sequence "PENDING(p!)" "TODO(t!)"  "|" "DONE(d!)" "ABORT(a@/!)")
+        ))
+
+(setq org-todo-keyword-faces
+      '(("工作任务" .      (:background "red" :foreground "white" :weight bold))
+        ("学习任务" .      (:background "white" :foreground "red" :weight bold))
+        ("其他任务" .      (:foreground "MediumBlue" :weight bold))
+        ("PENDING" .       (:background "LightGreen" :foreground "gray" :weight bold))
+        ("TODO" .          (:background "DarkOrange" :foreground "black" :weight bold))
+        ("DONE" .          (:background "azure" :foreground "Darkgreen" :weight bold))
+        ("ABORT" .         (:background "gray" :foreground "black"))
+        ))
+;; 优先级范围和默认任务的优先级
+(setq org-highest-priority ?A)
+(setq org-lowest-priority  ?E)
+(setq org-default-priority ?E)
+;; 优先级醒目外观
+(setq org-priority-faces
+      '((?A . (:background "red" :foreground "white" :weight bold))
+        (?B . (:background "DarkOrange" :foreground "white" :weight bold))
+        (?C . (:background "yellow" :foreground "DarkGreen" :weight bold))
+        (?D . (:background "DodgerBlue" :foreground "black" :weight bold))
+        (?E . (:background "SkyBlue" :foreground "black" :weight bold))
+        ))
