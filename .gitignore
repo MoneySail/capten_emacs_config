@@ -1,2 +1,6 @@
 # 插件不上传
 elpa/
+# 一些乱七八糟的文件
+*.dat
+auto-save-list/
+.session
