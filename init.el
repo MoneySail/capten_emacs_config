@@ -1,4 +1,4 @@
-;; 设置加载路径
+;;; 设置加载路径
 (add-to-list 'load-path "~/.emacs.d/lisp")
 
 
@@ -121,6 +121,11 @@
 (global-set-key (kbd "C-x p") 'magit-pull)
 (global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
 (global-set-key (kbd "C-x M-b") 'magit-branch-and-checkout)
+
+;; lua mode的相关配置
+(autoload 'lua-mode "lua-mode" "Lua editing mode." t)
+(add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
+(add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
 
 ;; org-mode的相关配置
 
