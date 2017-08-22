@@ -12,7 +12,7 @@
 
 * Author      : Capten
 
-* CreatedTime : $3 
+* CreatedTime : `(format-time-string "%Y-%m-%d %H:%M:%S")`
 
 * Version     : ${1:1.}
 

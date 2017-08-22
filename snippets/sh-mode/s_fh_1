@@ -11,7 +11,7 @@
 
 # Author      => Capten
 
-# Date        => $1
+# CreateTime  => `(format-time-string "%Y-%m-%d %H:%M:%S")`
 
 # Descrpteion => $2
 $0

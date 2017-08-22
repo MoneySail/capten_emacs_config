@@ -1,6 +1,6 @@
-;;; 设置加载路径
-(add-to-list 'load-path "~/.emacs.d/lisp")
+;;; package --- emacs初始化文件
 
+(add-to-list 'load-path "~/.emacs.d/lisp")
 
 ;; 加载基本配置文件
 (load "basic.el")
@@ -14,9 +14,13 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(helm-gtags-auto-update t)
+ '(helm-gtags-ignore-case t)
+ '(helm-gtags-path-style (quote relative))
+ '(magit-commit-arguments nil)
  '(package-selected-packages
    (quote
-    (markdown-mode elpy js2-mode switch-window find-file-in-project git-gutter evil magit ace-jump-mode xcscope helm auto-complete flycheck)))
+    (hydra avy helm-gtags counsel-gtags helm-ag projectile counsel swiper all-the-icons-ivy markdown-mode elpy js2-mode switch-window find-file-in-project git-gutter evil magit ace-jump-mode xcscope helm auto-complete flycheck)))
  '(safe-local-variable-values (quote ((encoding . utf-8)))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -38,16 +42,58 @@
 ;; 配置color-theme
 (require 'color-theme)
 (color-theme-initialize)
-(color-theme-calm-forest)
+(color-theme-lethe)
 
 ;; 配置helm
-(add-to-list 'load-path "~/.emacs.d/elpa/helm-20161010.1043")
 (require 'helm-config)
-(helm-mode 1)
+;;(helm-mode 1)
 (global-set-key (kbd "M-x") 'helm-M-x)
-(global-set-key (kbd "C-x C-b") 'helm-buffers-list)
+(global-set-key (kbd "C-c k") 'helm-ag)
+;;(global-set-key (kbd "C-x C-b") 'helm-buffers-list)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
-(global-set-key (kbd "C-x C-l") 'helm-locate)
+;;(global-set-key (kbd "C-x C-l") 'helm-locate)
+
+;; 配置ivy
+(ivy-mode 1)
+(setq ivy-use-virtual-buffers t)
+(setq enable-recursive-minibuffers t)
+(global-set-key "\C-s" 'swiper)
+(global-set-key (kbd "C-c C-r") 'ivy-resume)
+(global-set-key (kbd "<f6>") 'ivy-resume)
+;;(global-set-key (kbd "M-x") 'counsel-M-x)
+;;(global-set-key (kbd "C-x C-f") 'counsel-find-file)
+(global-set-key (kbd "<f1> f") 'counsel-describe-function)
+(global-set-key (kbd "<f1> v") 'counsel-describe-variable)
+(global-set-key (kbd "<f1> l") 'counsel-find-library)
+(global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
+(global-set-key (kbd "<f2> u") 'counsel-unicode-char)
+(global-set-key (kbd "C-c g") 'counsel-git)
+(global-set-key (kbd "C-c j") 'counsel-git-grep)
+;;(global-set-key (kbd "C-c k") 'counsel-ag)
+(global-set-key (kbd "C-x l") 'counsel-locate)
+(global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
+(define-key read-expression-map (kbd "C-r") 'counsel-expression-history)
+
+;; 配置gtags
+;;; Enable helm-gtags-mode
+(add-hook 'c-mode-hook 'helm-gtags-mode)
+(add-hook 'c++-mode-hook 'helm-gtags-mode)
+(add-hook 'asm-mode-hook 'helm-gtags-mode)
+
+;; customize
+
+;;; 快捷键
+;; key bindings
+(with-eval-after-load 'helm-gtags
+  (define-key helm-gtags-mode-map (kbd "M-t") 'helm-gtags-find-tag)
+  (define-key helm-gtags-mode-map (kbd "M-r") 'helm-gtags-find-rtag)
+  (define-key helm-gtags-mode-map (kbd "M-s") 'helm-gtags-find-symbol)
+  (define-key helm-gtags-mode-map (kbd "M-g M-p") 'helm-gtags-parse-file)
+  (define-key helm-gtags-mode-map (kbd "C-c <") 'helm-gtags-previous-history)
+  (define-key helm-gtags-mode-map (kbd "C-c >") 'helm-gtags-next-history)
+  (define-key helm-gtags-mode-map (kbd "M-." ) 'helm-gtags-dwim)
+  (define-key helm-gtags-mode-map (kbd "M-, ") 'helm-gtags-pop-stack))
+
 ;; 配置xcscope
 (require 'xcscope)
 (setq cscope-do-not-update-database t)
@@ -89,16 +135,45 @@
 ;; 配置go-mode
 (require 'go-mode-autoloads)
 
-;; 配置ace-jump
-(autoload
-  'ace-jump-mode-pop-mark
-  "ace-jump-mode"
-  "Ace jump back:-)"
-  t)
-(eval-after-load "ace-jump-mode"
-  '(ace-jump-mode-enable-mark-sync))
-(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
-(define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
+;; 配置ace-jump, 由于发现avy, 故先暂停这个插件
+;;(autoload
+;;  'ace-jump-mode-pop-mark
+;;  "ace-jump-mode"
+;;  "Ace jump back:-)"
+;;  t)
+;;(eval-after-load "ace-jump-mode"
+;; '(ace-jump-mode-enable-mark-sync))
+;;(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+;;(define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
+
+;;配置hydra
+(defhydra hydra-hick (:color pink
+                             :hint nil)
+    "
+^Utl^              ^Unmark^           ^Actions^          ^Git
+^^^^^^^^-----------------------------------------------------------------
+_k_: kill line     _u_: unmark        _x_: execute       _S_: magit show
+_s_: smex          _U_: unmark up     _b_: bury          _g_: magit status
+"
+    ("k" kill-line :exit t)
+    ("u" Buffer-menu-unmark)
+    ("U" Buffer-menu-backup-unmark)
+    ("s" smex)
+    ("x" Buffer-menu-execute)
+    ("b" Buffer-menu-bury)
+    ("T" Buffer-menu-toggle-files-only)
+    ("g" magit-status :color blue)
+    ("S" magit-show :color blue)
+    ("c" nil "cancel")
+    ("v" Buffer-menu-select "select" :color blue)
+    ("o" Buffer-menu-other-window "other-window" :color blue)
+    ("q" quit-window "quit" :color blue))
+
+(global-set-key (kbd "C-t") 'hydra-hick/body)
+
+;; 配置avy
+(global-set-key (kbd "C-x ,") 'avy-goto-char)
+(global-set-key (kbd "C-x .") 'avy-goto-char-2)
 
 ;; 配置js-2 mode
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
