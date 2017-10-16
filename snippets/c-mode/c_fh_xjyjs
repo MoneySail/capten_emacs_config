@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+# name: c_fh_xjyjs
+# key: c_fh_xjyjs
+# --
+
+/*
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * File name  : ${1:.c}
+ * Brief      : ${2:}
+ * Create time: `(format-time-string "%Y-%m-%d %H:%M:%S")`
+ * Copyright  : (c) 2017-2020 XJYJS. All rights reserved.
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ */
+$0

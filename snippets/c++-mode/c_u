@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: 联合体模板
+# key: c_u
+# --
+$1联合体定义
+typedef union
+{
+    
+
+ 
+}_TypeDef;

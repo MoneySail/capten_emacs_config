@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: cc_fh_cap
+# key: cc_fh_cap
+# --
+/*
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+ * File Name  : ${1:.cpp}
+ * Brief      : ${2:}
+ * Create Time: `(format-time-string "%Y-%m-%d %H:%M:%S")`
+ * Copyright  : (c) 2017-2020 capten.All rights reserved.
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+ */
+$0

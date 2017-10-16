@@ -1,0 +1,23 @@
+# -*- mode: snippet -*-
+# name: p_fh_cap
+# key: p_fh_cap
+# --
+
+# -*- coding: utf-8 -*-
+
+"""
+*--------------------        Begin      --------------------*
+
+* Script name : ${1:.py}
+
+* Create time : `(format-time-string "%Y-%m-%d %H:%M:%S")`
+
+* Version     : ${2:1.}
+
+* Brief       : $5
+
+* Copyright   : (c) 2017-2020 capten.All rights reserved.
+
+*--------------------         End       --------------------*
+
+"""
