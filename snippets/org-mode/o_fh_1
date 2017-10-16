@@ -5,12 +5,12 @@
 
 /*
 
- * Contenet     => ~ day plan
+ * File name    => ~ day plan
  
- * Author       => Capten
+ * Author       => capten
 
- * CreateTime   => `(format-time-string "%Y-%m-%d %H:%M:%S")`
+ * Create time  => `(format-time-string "%Y-%m-%d %H:%M:%S")`
  
- * TodayMajor   =>
+ * Today major  =>
  
  */

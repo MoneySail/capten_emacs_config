@@ -5,12 +5,12 @@
 
 /*
 
- * Content      => ~week plan
+ * File name    => ${1.py}
  
- * Author       => Capten
+ * Author       => capten
 
- * CreateTime   => `(format-time-string "%Y-%m-%d %H:%M:%S")`
+ * Create time  => `(format-time-string "%Y-%m-%d %H:%M:%S")`
  
- * WeekMajor    =>  
- 
+ * Week major   =>
+
  */

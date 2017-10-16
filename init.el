@@ -209,13 +209,14 @@ _s_: smex          _U_: unmark up     _b_: bury          _g_: magit status
 
 ; 丰富TODO的配置内容
 (setq org-todo-keywords
-      '((type "工作任务(w!)" "学习任务(s!)" "其他任务(l!)" "|")
+      '((type "工作任务(w!)" "学习任务(s!)" "其他任务(o!)" "生活任务(l!)" "|")
         (sequence "PENDING(p!)" "TODO(t!)"  "|" "DONE(d!)" "ABORT(a@/!)")
         ))
 
 (setq org-todo-keyword-faces
       '(("工作任务" .      (:background "red" :foreground "white" :weight bold))
         ("学习任务" .      (:background "white" :foreground "red" :weight bold))
+        ("生活任务" .      (:background "yellow" :foreground "white" :weight bold))
         ("其他任务" .      (:foreground "MediumBlue" :weight bold))
         ("PENDING" .       (:background "LightGreen" :foreground "gray" :weight bold))
         ("TODO" .          (:background "DarkOrange" :foreground "black" :weight bold))
